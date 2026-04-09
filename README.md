@@ -4,7 +4,7 @@
 | Matthieu | : | Barreur / Activateur / Porte Parole | | Noam | : | Architecte / Intégrateur Git / Faiseur de point | | Malo | : | Circulateur de Parole / Gardien du Temps / Scribe / Secrétaire |
 
 ## Description: 
-caca
+L'objectif de ce projet est de créer un algorithme python capable de classer une qantité importante de candidatures, 
 
 ## Instalation / Utilisation: 
 
