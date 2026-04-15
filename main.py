@@ -25,7 +25,7 @@ def etape_chargement():   # On définit une fonction qui initialise le processus
     candidatures = extraire_candidatures(FICHIER_CANDIDATURES)   # On enregistre les vœux des étudiants dans une liste de dictionnaires en utilisant la fonction extraire_candidatures
     formations = extraire_formations(FICHIER_FORMATIONS)   # On récupère les caractéristiques et capacités d'accueil de chaque formation en utilisant la fonction extraire_formations
     
-    print(f"✓ {len(candidatures)} candidatures et {len(formations)} formations importées")
+    print(f"{len(candidatures)} candidatures et {len(formations)} formations importées")
     statistiques(candidatures)   # On déclenche l'affichage d'un premier bilan sur le profil des candidats 
     return candidatures, formations
 
