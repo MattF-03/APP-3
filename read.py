@@ -26,21 +26,21 @@ def extraire_formations(chemin_csv):   # On définit une fonction qui va traiter
     return capacites
 
 def afficher_candidature(i):   # On définit une fonction qui va affihcer les informations détaillées d'une candidature passée en paramètre
-    print(f"  Candidat ID    : {i["candidate_id"]}")   # On affiche l'identifiant de l'étudiant
-    print(f"  Formation ID   : {i["program_id"]}")   # On affiche le code de la formation pour laquelle le vœu a été fait
-    print(f"  Score          : {i["score"]}")   # On affiche le score obtenu par le candidat pour ce vœu
+    print(f"  Candidat ID   : {i["candidate_id"]}")   # On affiche l'identifiant de l'étudiant
+    print(f"  Formation ID  : {i["program_id"]}")   # On affiche le code de la formation pour laquelle le vœu a été fait
+    print(f"  Score         : {i["score"]}")   # On affiche le score obtenu par le candidat pour ce vœu
 
     heures = i["timestamp"] // 60
     minutes = i["timestamp"] % 60
 
-    print(f"  Timestamp      : {heures}h {minutes:02d}min")   # On affiche l'heure du dépôt du vœu
+    print(f"  Timestamp     : {heures}h {minutes:02d}min")   # On affiche l'heure du dépôt du vœu
     
     if i['is_scholarship'] == 1:   # Si le candidat est boursier
-        print("  Boursier       : Oui")
+        print("  Boursier      : Oui")
     else:
-        print("  Boursier       : Non")
+        print("  Boursier      : Non")
         
-    print(f"  Lycée (hs_id)  : {i['hs_id']}")   # On affiche l'identifiant du lycée d'origine de l'élève
+    print(f"  Lycée (hs_id) : {i['hs_id']}")   # On affiche l'identifiant du lycée d'origine de l'élève
 
 def rechercher_par_candidat(candidatures, id_candidature):   # On définit une fonction qui reçoit la liste de tous les vœux et l'identifiant du candidat recherché
     resultats = []   # On crée une liste vide pour stocker les vœux appartenant au candidat précis
@@ -90,13 +90,13 @@ def statistiques(candidatures):   # On définit une fonction qui va analyser la 
         if i["is_scholarship"] == 1:   # Si le candidat est boursier
             nombre_boursiers += 1
 
-    print("\n===  STATISTIQUES GÉNÉRALES ===")
+    print("\n=== STATISTIQUES GÉNÉRALES ===")
     print()
-    print(f"  Nombre total de vœux  : {total}")
-    print(f"  Nombre de formations  : {nombre_formations}")
-    print(f"  Nombre de candidats   : {nombre_candidats}")
+    print(f"  Nombre total de vœux : {total}")
+    print(f"  Nombre de formations : {nombre_formations}")
+    print(f"  Nombre de candidats  : {nombre_candidats}")
     pourcentage = (100 * nombre_boursiers) / total   # On calcule le pourcentage de boursiers parmi l'ensemble des candidats
-    print(f"  Nombre de boursiers   : {nombre_boursiers} ({pourcentage:.1f} %)")   # On affiche le nombre de boursiers et de leur pourcentage 
+    print(f"  Nombre de boursiers  : {nombre_boursiers} ({pourcentage:.1f} %)")   # On affiche le nombre de boursiers et de leur pourcentage 
 
 if __name__ == "__main__":   # On vérifie si le script est lancé directement et non importé 
     print()
@@ -134,7 +134,9 @@ if __name__ == "__main__":   # On vérifie si le script est lancé directement e
     else:
         formations = extraire_formations(FICHIER_FORMATIONS)   # On appelle la fonction extraire_formations pour transformer le contenu du fichier CSV en un dictionnaire 
         print(f"\n{len(formations)} formations enregistrées")   # On affiche le nombre total de formations enregistrées 
+        print()
         print("Exemples (10 premières) :")
+        print()
         compteur = 0
         for id_formation, capacite in formations.items():   # On parcourt chaque formation du dictionnaire pour récupérer son identifiant et sa capacité d'accueil
             if compteur < 10:
