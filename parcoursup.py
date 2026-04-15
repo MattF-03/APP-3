@@ -36,7 +36,7 @@ def classer_candidats(groupes, formations, policy = 1):   # On définit une fonc
 
     return resultats
 
-def afficher_formation(program_id, resultats, nombre_candidats = 5):   # On définit une fonction d'affichage qui reçoit l'identifiant de la formation, ses résultats et le nombre de candidats 
+def afficher_formation(program_id, resultats, nombre_candidats = 3):   # On définit une fonction d'affichage qui reçoit l'identifiant de la formation, ses résultats et le nombre de candidats 
     print()
     print(f"  FORMATION : {program_id}  |  {len(resultats["ordre_appel"])} candidats  |  {resultats["capacite"]} places")   # On affiche le nom de la formation, le total de candidats et le nombre de places disponibles 
     print(f"  Admis : {len(resultats["admis"])}   En attente : {len(resultats["liste_attente"])}")   # On affiche le bilan fina avec le nombre de candidats acceptés et le nombre de candidats en attente
@@ -49,15 +49,15 @@ def afficher_formation(program_id, resultats, nombre_candidats = 5):   # On déf
             statut = "non boursier"
         print(f"    {rang}. Identifiant = {candidat["candidate_id"]}   Score = {candidat["score"]}   Statut = {statut}")   # On affiche le rang du candidat, son identifiant, sa note et son statut de boursier ou non
 
-        if resultats["liste_attente"]:   # On vérifie si la liste d'attente n'est pas vide 
-            print(f"\n  LISTE D'ATTENTE :")
+    if resultats["liste_attente"]:   # On vérifie si la liste d'attente n'est pas vide 
+        print(f"\n  LISTE D'ATTENTE :")
 
-            for rang, candidat in enumerate(resultats["liste_attente"][:nombre_candidats], 1):   # On parcourt la liste des candidats en attente jusqu'à la limite choisie en créant un rang qui démarre à 1 pour numéroter chaque ligne du classement
-                if candidat["is_scholarship"]:
-                    statut = "boursier"
-                else:
-                    statut = "non boursier"
-                print(f"    {rang}. Identifiant = {candidat["candidate_id"]}   Score = {candidat["score"]}   Statut = {statut}")
+        for rang, candidat in enumerate(resultats["liste_attente"][:nombre_candidats], 1):   # On parcourt la liste des candidats en attente jusqu'à la limite choisie en créant un rang qui démarre à 1 pour numéroter chaque ligne du classement
+            if candidat["is_scholarship"]:
+                statut = "boursier"
+            else:
+                statut = "non boursier"
+            print(f"    {rang}. Identifiant = {candidat["candidate_id"]}   Score = {candidat["score"]}   Statut = {statut}")
 
 def afficher_resume(resultats):   # On définit une fonction qui va calculer et afficher le bilan global de toutes les formations
 
