@@ -11,7 +11,7 @@ def cle_score(i):   # On définit une fonction qui sert de règle pour trier les
 def mesurer_temps(algo, liste):   # On définit une fonction pour calculer la durée exacte d'un tri sur une liste donnée
     debut = time.perf_counter()   # On enregistre l'heure précise juste avant le début du tri
     copie_liste = liste[:]   # On cée une copie de la liste originale pour éviter que le tri ne la modifie définitivement
-    algo(copie_liste, cle_score)   # On lance l'algorithme de tri sur la copie en utilisant la règle du score pour classer les éléments
+    resultat = algo(copie_liste, cle_score)   # On lance l'algorithme de tri sur la copie en utilisant la règle du score pour classer les éléments
     return time.perf_counter() - debut   # On calcule et renvoie la différence entre l'heure de fin et l'heure de début
 
 def comparer_graphique(candidatures, tailles = None):   # On définit une fonction qui gère la création du graphique 
@@ -30,6 +30,8 @@ def comparer_graphique(candidatures, tailles = None):   # On définit une foncti
     for nom in algorithmes:   # On parcourt un par un les noms des méthodes de tri enregistrés dans le dictionnaire
         resultats[nom] = []   # On crée la liste des mesures pour un algorithme spécifique
 
+    print()
+
     for taille in tailles:
         print(f"  Taille {taille}...")
         echantillon = random.sample(candidatures, min(taille, len(candidatures)))   # On prend aléatoirement un nombre de candidats égal à la taille actuelle
@@ -41,6 +43,8 @@ def comparer_graphique(candidatures, tailles = None):   # On définit une foncti
                 duree = mesurer_temps(algo, echantillon)   # On appelle la fonction de mesure pour obtenir le temps d'exécution
                 resultats[nom].append(duree)   # On enregistre le temps trouvé dans la liste des résultats de l'algorithme
 
+    print()
+    
     couleurs = {   # On associe une couleur spécifique à chaque algorithme pour les distinguer sur le dessin
         "Insertion" : "red",
         "Sélection" : "orange",
