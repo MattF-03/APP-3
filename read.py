@@ -109,6 +109,7 @@ if __name__ == "__main__":   # On vérifie si le script est lancé directement e
         print(f"Fichiers visibles : {os.listdir()}")   # On liste tous les fichiers présents dans le dossier actuel pour à trouver l'erreur
         if os.path.exists(DOSSIER):   # On vérifie si le dossier spécifié dans la variable DOSSIER existe 
             print(f"Contenu de {DOSSIER} : {os.listdir(DOSSIER)}")   # On affiche la liste des fichiers contenus à l'intérieur du dossier spécifique
+    
     else:
         print("Fichier trouvé ! Lecture en cours...")
         candidatures = extraire_candidatures(FICHIER_CANDIDATURES)   # On appelle la fonction extraire_candidatures pour enregistrer les données du fichier dans la variable candidatures
@@ -137,6 +138,7 @@ if __name__ == "__main__":   # On vérifie si le script est lancé directement e
         print()
         print("Exemples (10 premières) :")
         print()
+
         compteur = 0
         for id_formation, capacite in formations.items():   # On parcourt chaque formation du dictionnaire pour récupérer son identifiant et sa capacité d'accueil
             if compteur < 10:
