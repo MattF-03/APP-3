@@ -132,7 +132,7 @@ def comparer_algorithmes(candidatures, tailles = None):    # On définit une fon
                 resultats[nom].append(duree)   # On ajoute le temps mesuré à la liste des résultats 
                 affichage = f"{duree:.4f}s"
                 print(f"{affichage:>14}", end="")   # On affiche la durée de chaque tri 
-
+                
         print()
 
     return resultats, tailles
